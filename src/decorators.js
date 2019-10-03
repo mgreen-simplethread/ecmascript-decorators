@@ -25,6 +25,7 @@ export function wrap(fn) {
 
 export function defineElement(elemName) {
   return function(target) {
+    console.log(target);
     customElements.define(elemName, target);
   };
 }

@@ -7,27 +7,15 @@ class IntroMessage extends HTMLElement {
 
     const shadow = this.attachShadow({ mode: "open" });
     this.wrapper = this.createElement("div", "intro-message");
-    this.title = this.createElement("h1", "intro-message__title");
-    this.text = this.createElement("div", "intro-message__text");
+    this.header = this.createElement("h1", "intro-message__title");
+    this.content = this.createElement("div", "intro-message__text");
 
-    this.title.textContent = this.getAttribute("title");
-    this.text.textContent = this.getAttribute("text");
+    this.header.textContent = this.getAttribute("header");
+    this.content.innerHTML = this.innerHTML;
 
     shadow.appendChild(this.wrapper);
-    this.wrapper.appendChild(this.title);
-    this.wrapper.appendChild(this.text);
-  }
-
-  createWrapper() {
-    const elem = document.createElement("div");
-    elem.classList.add("intro-message");
-    return elem;
-  }
-
-  createTitle() {
-    const elem = document.createElement("h1");
-    elem.classList.add("intro-message__title");
-    return elem;
+    this.wrapper.appendChild(this.header);
+    this.wrapper.appendChild(this.content);
   }
 
   createElement(tag, klass) {

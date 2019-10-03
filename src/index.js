@@ -2,14 +2,6 @@ import "./styles.css";
 import { logged, wrap } from "./decorators";
 import "./intro-message";
 
-document.getElementById("app").innerHTML = `
-<h1>ECMAScript Decorator Examples</h1>
-<div>
-  Open up devtools console
-</div>
-<intro-message title="ECMAScript Decorators" text="Check out devtools console" />
-`;
-
 function logBeforeAfter(func, ...args) {
   console.log("Before run func", func.name);
   console.log("With args:", ...args);
