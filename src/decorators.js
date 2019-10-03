@@ -22,3 +22,9 @@ export function wrap(fn) {
     return descriptor;
   };
 }
+
+export function defineElement(elemName) {
+  return function(target) {
+    customElements.define(elemName, target);
+  };
+}
