@@ -15,6 +15,7 @@ class DecoratorExamples {
 
   @readOnly permanentId = 123;
   @freeze cantDeleteMe = 'nya nya';
+  @enumerable(false) notInLoops = 'this is passed over during iteration';
 
   @logged sayHello(name) {
     console.log("Saying hi to %s", name);
