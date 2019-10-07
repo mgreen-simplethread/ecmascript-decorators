@@ -23,9 +23,36 @@ export function wrap(fn) {
   };
 }
 
-export function defineElement(elemName) {
+export function readOnly(_target, _key, descriptor) {
+  descriptor.writable = false;
+  return descriptor;
+}
+
+export function freeze(_target, key, descriptor) {
+  descriptor.writable = false;
+  descriptor.configurable = false;
+  return descriptor;
+}
+
+export function enumerable(value) {
+  return function(target, key, descriptor) {
+    descriptor.enumerable = Boolean(value);
+    return descriptor;
+  }
+}
+
+export function customElement(elemName) {
   return function(target) {
     console.log(target);
     customElements.define(elemName, target);
   };
+}
+
+export function debug(target, key, descriptor) {
+  console.group('Debug Decorator Output');
+  console.log('Target: %O', target);
+  console.log('Key: %s', key);
+  console.log('Descriptor: %O', descriptor);
+  console.groupEnd('Debug Decorator Output');
+  return descriptor;
 }

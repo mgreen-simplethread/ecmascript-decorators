@@ -1,6 +1,6 @@
-import { defineElement } from "./decorators";
+import { customElement } from "./decorators";
 
-@defineElement("intro-message")
+@customElement("intro-message")
 class IntroMessage extends HTMLElement {
   constructor() {
     super();

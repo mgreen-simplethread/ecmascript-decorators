@@ -1,5 +1,5 @@
 import "./styles.css";
-import { logged, wrap } from "./decorators";
+import { debug, logged, wrap, readOnly, enumerable, freeze  } from "./decorators";
 import "./intro-message";
 
 function logBeforeAfter(func, ...args) {
@@ -11,6 +11,11 @@ function logBeforeAfter(func, ...args) {
 }
 
 class DecoratorExamples {
+  @debug test = 'hello';
+
+  @readOnly permanentId = 123;
+  @freeze cantDeleteMe = 'nya nya';
+
   @logged sayHello(name) {
     console.log("Saying hi to %s", name);
   }
@@ -20,6 +25,13 @@ class DecoratorExamples {
   }
 }
 
-const test = new DecoratorExamples();
-test.sayHello("Mike");
-test.sayMessage("Jimbo", "Yo!");
+window.example = new DecoratorExamples();
+
+console.log(`
+░█▀▄░█▀▀░█▀▀░█▀█░█▀▄░█▀█░▀█▀░█▀█░█▀▄░█▀▀░█
+░█░█░█▀▀░█░░░█░█░█▀▄░█▀█░░█░░█░█░█▀▄░▀▀█░▀
+░▀▀░░▀▀▀░▀▀▀░▀▀▀░▀░▀░▀░▀░░▀░░▀▀▀░▀░▀░▀▀▀░▀
+`);
+console.log('%cWelcome to the ECMAScript decorators example playground!', 'font-weight:bold;color:#ff0000;');
+console.log(`There's a global object called example that you can interact with. This is it, right down here:`);
+console.log('window.example = %O', example);
