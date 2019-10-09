@@ -1,5 +1,6 @@
 import "./styles.css";
 import { debug, logged, wrap, readOnly, enumerable, freeze  } from "./decorators";
+import { Porridge, Oatmeal } from './oatmeal-example';
 import "./intro-message";
 
 function logBeforeAfter(func, ...args) {
@@ -36,3 +37,9 @@ console.log(`
 console.log('%cWelcome to the ECMAScript decorators example playground!', 'font-weight:bold;color:#ff0000;');
 console.log(`There's a global object called example that you can interact with. This is it, right down here:`);
 console.log('window.example = %O', example);
+
+window.oatmeal = new Oatmeal();
+
+console.log(`I've got an oatmeal object here: %O`, oatmeal);
+console.log('Its viscosity is %d', oatmeal.viscosity);
+console.log('That property is marked read-only. Try changing it and see what happens.');
