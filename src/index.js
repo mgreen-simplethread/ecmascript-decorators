@@ -38,7 +38,7 @@ console.log('%cWelcome to the ECMAScript decorators example playground!', 'font-
 console.log(`There's a global object called example that you can interact with. This is it, right down here:`);
 console.log('window.example = %O', example);
 
-window.oatmeal = new Oatmeal();
+window.oatmeal = new Oatmeal('Brown Sugar Cinnamon');
 
 console.log(`I've got an oatmeal object here: %O`, oatmeal);
 console.log('Its viscosity is %d', oatmeal.viscosity);
